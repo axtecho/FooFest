@@ -15,22 +15,70 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
-  // useEffect(() => {
-  //   setIsLoading(true);
-  //   const timing = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 4000);
-  //   return () => clearTimeout(timing);
-  // }, []);
-
   return (
     <div className={generalStyles.App}>
       <Routes>
-        <Route path="/" element={<Festival user={user} setUser={setUser} isLoading={isLoading} setIsLoading={setIsLoading} />} />
-        <Route path="/tickets" element={<Booking user={user} setUser={setUser} isLoading={isLoading} setIsLoading={setIsLoading} />} />
-        <Route path="/program" element={<Program user={user} setUser={setUser} isLoading={isLoading} setIsLoading={setIsLoading} setFavourites={setFavourites} favourites={favourites} />} />
-        <Route path="/artists" element={<Bands user={user} setUser={setUser} isLoading={isLoading} setIsLoading={setIsLoading} setFavourites={setFavourites} favourites={favourites} />} />
-        <Route path="/profile" element={<Profile user={user} setUser={setUser} isLoading={isLoading} setIsLoading={setIsLoading} setFavourites={setFavourites} favourites={favourites} />} />
+        <Route
+          path="/"
+          element={
+            <Festival
+              user={user}
+              setUser={setUser}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
+        />
+        <Route
+          path="/tickets"
+          element={
+            <Booking
+              user={user}
+              setUser={setUser}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+            />
+          }
+        />
+        <Route
+          path="/program"
+          element={
+            <Program
+              user={user}
+              setUser={setUser}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+              setFavourites={setFavourites}
+              favourites={favourites}
+            />
+          }
+        />
+        <Route
+          path="/artists"
+          element={
+            <Bands
+              user={user}
+              setUser={setUser}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+              setFavourites={setFavourites}
+              favourites={favourites}
+            />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Profile
+              user={user}
+              setUser={setUser}
+              isLoading={isLoading}
+              setIsLoading={setIsLoading}
+              setFavourites={setFavourites}
+              favourites={favourites}
+            />
+          }
+        />
       </Routes>
     </div>
   );
