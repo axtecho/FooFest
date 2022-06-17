@@ -7,6 +7,18 @@ import Summary from "../form_components/Summary";
 
 export default function TicketHolderForm(props) {
   const formEl = useRef(null);
+  const [holderName, setHolderName] = useState("");
+  const [holderEmail, setHolderEmail] = useState("");
+  const [ticketHolders, setTicketHolders] = useState([]);
+
+  function createHolder(hName, hEmail) {
+    console.log(`name: ${hName}`);
+    console.log(`email: ${hEmail}`);
+    const holder = { hName, hEmail };
+    console.log(holder);
+    setTicketHolders((old) => old.concat(holder));
+    console.log(ticketHolders);
+  }
 
   const holderForm = [...Array(props.amount)].map((e, i) => {
     if (i < props.amount) {
@@ -14,9 +26,22 @@ export default function TicketHolderForm(props) {
         <fieldset className={billing.ticketholderCard}>
           <legend>Ticketholder {i + 1}</legend>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" placeholder=" " pattern="^[a-zA-ZÆØÅæøå'- ]*$" required />
+          <input type="text" id={"name" + i} name={"name" + i} placeholder=" " pattern="^[a-zA-ZÆØÅæøå'- ]*$" required />
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" placeholder=" " required />
+          <input type="email" name={"email" + i} id={"email" + i} placeholder=" " required />
+          <button
+            className={generalStyles.primaryButton}
+            onClick={() => {
+              // console.log(formEl.current.elements[i * 4 + 4].value);
+              const hName = formEl.current.elements[i * 4 + 1].value;
+              const hEmail = formEl.current.elements[i * 4 + 2].value;
+              setHolderName(formEl.current.elements[i * 4 + 1].value);
+              setHolderEmail(formEl.current.elements[i * 4 + 2].value);
+              createHolder(hName, hEmail);
+            }}
+          >
+            Use info
+          </button>
         </fieldset>
       );
     }
@@ -50,6 +75,7 @@ export default function TicketHolderForm(props) {
 
       {/* -------------------------------------------------- */}
       <img src="/img/step3.svg" alt="step3 breadcrumbs" className={form2Styles.breadcrumbs} />
+      {console.log(holderName, holderEmail)}
 
       <div className={form2Styles.checkout_grid}>
         <section className={form2Styles.checkout_options}>

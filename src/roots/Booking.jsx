@@ -30,9 +30,7 @@ export default function Booking(props) {
   const [amount, setAmount] = useState(1);
   const [reservation, setReservation] = useState([]);
   const [showAlert, setAlert] = useState(false);
-  const [basket, setBasket] = useState([
-    { product: "Booking Fee", price: 99, id: 1, amount: 1 },
-  ]);
+  const [basket, setBasket] = useState([{ product: "Booking Fee", price: 99, id: 1, amount: 1 }]);
 
   const values = {
     isSearching,
@@ -80,9 +78,9 @@ export default function Booking(props) {
         {step === 4 && <BillingInfo {...values} />}
         {step === 5 && <CCvalidation {...values} />}
         {step === 6 && <Thankyou {...values} />}
-
+        {/* 
         {timer === 1 && <Timer setStep={setStep} setTimer={setTimer} />}
-        {step === -1 && <TimeUp setStep={setStep} />}
+        {step === -1 && <TimeUp setStep={setStep} />} */}
 
         {/* {showcontent === 0 ? (
           <section className={generalStyles.sections_forms}>
