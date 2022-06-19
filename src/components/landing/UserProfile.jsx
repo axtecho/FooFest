@@ -9,9 +9,9 @@ export default function UserProfile(props) {
     <div className={userStyles.UserPage}>
       <h3>Welcome, {props.user}</h3>
       <p>You still haven't purchased any tickets</p>
-      <a href="/tickets" className={generalStyles.cta}>
+      <Link to={"/tickets"} className={generalStyles.cta}>
         Get tickets
-      </a>
+      </Link>
     </div>
   );
 }
