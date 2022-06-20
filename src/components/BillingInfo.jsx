@@ -53,7 +53,13 @@ export default function CheckOutForm(props) {
       <div className={form2Styles.checkout_grid}>
         <section className={form2Styles.checkout_options}>
           <h2>Checkout</h2>
-          <a href="#/">← Back</a>
+          <a
+            onClick={() => {
+              props.setStep((old) => old - 1);
+            }}
+          >
+            ← Back
+          </a>
           <h4>Billing Information</h4>
           <form ref={formEl} onChange={createObject} className={billing.billing_form} onSubmit={exportInfo}>
             <fieldset>

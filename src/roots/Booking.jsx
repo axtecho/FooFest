@@ -21,6 +21,8 @@ import Thankyou from "../components/booking/Thankyou";
 export default function Booking(props) {
   const [isSearching, setIsSearching] = useState(false);
   const [ticketholderdata, setTicketholderdata] = useState({});
+  const [ticketHolders, setTicketHolders] = useState([]);
+
   const [showcontent, setShowContent] = useState(0);
   const [reservationId, setReservationId] = useState("");
   const [step, setStep] = useState(1);
@@ -37,6 +39,8 @@ export default function Booking(props) {
     setIsSearching,
     ticketholderdata,
     setTicketholderdata,
+    setTicketHolders,
+    ticketHolders,
     showcontent,
     setShowContent,
     reservationId,
