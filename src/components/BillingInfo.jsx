@@ -26,6 +26,7 @@ export default function CheckOutForm(props) {
     city: city,
     postalcode: zipcode,
     country: country,
+    ticketholders: props.ticketHolders,
   };
   function backButton() {
     props.setStep((old) => old - 1);

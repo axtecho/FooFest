@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { Formik, Form, Field, useFormik } from "formik";
-import * as Yup from "yup";
 
 import billing from "/sass/modules/_Billing.module.scss";
 import form2Styles from "/sass/modules/_Form2.module.scss";
@@ -41,11 +40,7 @@ export default function TicketHolderForm(props) {
             ← Back
           </a>
 
-          <Formik
-            initialValues={{
-              picked: "",
-            }}
-          >
+          <Formik>
             <form className={billing.billing_form} ref={formEl}>
               {holderForm}
               <fieldset>
@@ -65,7 +60,7 @@ export default function TicketHolderForm(props) {
                     onClick={() => {
                       props.setStep((old) => old + 1);
                       props.setTicketHolders(formik.values);
-                      console.log(props.ticketHolders);
+                      console.log(formik.values);
                     }}
                   >
                     Continue to payment

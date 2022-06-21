@@ -15,70 +15,23 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [favourites, setFavourites] = useState([]);
 
+  const values = {
+    user,
+    setUser,
+    isLoading,
+    setIsLoading,
+    favourites,
+    setFavourites,
+  };
+
   return (
     <div className={generalStyles.App}>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Festival
-              user={user}
-              setUser={setUser}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-          }
-        />
-        <Route
-          path="/tickets"
-          element={
-            <Booking
-              user={user}
-              setUser={setUser}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-            />
-          }
-        />
-        <Route
-          path="/program"
-          element={
-            <Program
-              user={user}
-              setUser={setUser}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              setFavourites={setFavourites}
-              favourites={favourites}
-            />
-          }
-        />
-        <Route
-          path="/artists"
-          element={
-            <Bands
-              user={user}
-              setUser={setUser}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              setFavourites={setFavourites}
-              favourites={favourites}
-            />
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <Profile
-              user={user}
-              setUser={setUser}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
-              setFavourites={setFavourites}
-              favourites={favourites}
-            />
-          }
-        />
+        <Route path="/" element={<Festival {...values} />} />
+        <Route path="/tickets" element={<Booking {...values} />} />
+        <Route path="/program" element={<Program {...values} />} />
+        <Route path="/artists" element={<Bands {...values} />} />
+        <Route path="/profile" element={<Profile {...values} />} />
       </Routes>
     </div>
   );
