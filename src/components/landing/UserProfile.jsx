@@ -1,4 +1,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Link, Routes, Route } from "react-router-dom";
+
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 import userStyles from "/sass/modules/_User.module.scss";

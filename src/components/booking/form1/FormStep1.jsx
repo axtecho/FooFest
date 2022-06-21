@@ -65,39 +65,18 @@ export default function FormStep1({ ...props }) {
         <div className={form2Styles.checkout_grid}>
           <section className={form2Styles.checkout_optionsFullWidth}>
             <h2>Select ticket</h2>
-            <form
-              className={form1Styles.step1Form}
-              ref={formEl}
-              onSubmit={searchTickets}
-            >
+            <form className={form1Styles.step1Form} ref={formEl} onSubmit={searchTickets}>
               <fieldset>
-                {/* <legend className={form1Styles.ticket_legend}>Ticket Type:</legend> */}
                 <label>Ticket Type:</label>
                 <div className={form1Styles.form__type}>
-                  <TicketButton
-                    name="General"
-                    price="799kr"
-                    ticket={props.ticket}
-                    setTicket={props.setTicket}
-                  />
-                  <TicketButton
-                    name="VIP"
-                    price="1299kr"
-                    ticket={props.ticket}
-                    setTicket={props.setTicket}
-                  />
+                  <TicketButton name="General" price="799kr" ticket={props.ticket} setTicket={props.setTicket} />
+                  <TicketButton name="VIP" price="1299kr" ticket={props.ticket} setTicket={props.setTicket} />
                 </div>
               </fieldset>
 
               <fieldset className={form1Styles.form__amount}>
                 <label>Choose amount:</label>
-                {/* <p>Choose a number greater than 0</p> */}
-                <AmountButton
-                  id="amount"
-                  name="amount"
-                  amount={props.amount}
-                  setAmount={props.setAmount}
-                />
+                <AmountButton id="amount" name="amount" amount={props.amount} setAmount={props.setAmount} />
               </fieldset>
 
               <fieldset>
@@ -105,58 +84,24 @@ export default function FormStep1({ ...props }) {
                 <label>Choose area:</label>
                 <div className={form1Styles.form__area}>
                   <div className={form1Styles.form__area__row}>
-                    <AreaButton
-                      name="Svartheim"
-                      area={props.area}
-                      setArea={props.setArea}
-                    />
-                    <AreaButton
-                      name="Nilfheim"
-                      area={props.area}
-                      setArea={props.setArea}
-                    />
-                    <AreaButton
-                      name="Helheim"
-                      area={props.area}
-                      setArea={props.setArea}
-                    />
+                    <AreaButton name="Svartheim" area={props.area} setArea={props.setArea} />
+                    <AreaButton name="Nilfheim" area={props.area} setArea={props.setArea} />
+                    <AreaButton name="Helheim" area={props.area} setArea={props.setArea} />
                   </div>
                   <div className={form1Styles.form__area__row}>
-                    <AreaButton
-                      name="Muspeleheim"
-                      area={props.area}
-                      setArea={props.setArea}
-                    />
-                    <AreaButton
-                      name="Alfheim"
-                      area={props.area}
-                      setArea={props.setArea}
-                    />
+                    <AreaButton name="Muspeleheim" area={props.area} setArea={props.setArea} />
+                    <AreaButton name="Alfheim" area={props.area} setArea={props.setArea} />
                   </div>
                 </div>
               </fieldset>
 
-              {!props.isSearching && (
-                <button className={generalStyles.primaryButton}>
-                  Find tickets
-                </button>
-              )}
-              {props.isSearching && (
-                <button className={generalStyles.primaryButton}>
-                  Searching tickets...
-                </button>
-              )}
+              {!props.isSearching && <button className={generalStyles.primaryButton}>Find tickets</button>}
+              {props.isSearching && <button className={generalStyles.primaryButton}>Searching tickets...</button>}
             </form>
           </section>
         </div>
       )}
-      {props.showAlert === true && (
-        <Alert
-          message={props.reservation.error}
-          setAlert={props.setAlert}
-          setTimer={props.setTimer}
-        />
-      )}
+      {props.showAlert === true && <Alert message={props.reservation.error} setAlert={props.setAlert} setTimer={props.setTimer} />}
     </>
   );
 }
